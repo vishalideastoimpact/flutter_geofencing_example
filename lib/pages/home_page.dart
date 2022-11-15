@@ -101,6 +101,18 @@ class _HomePageState extends State<HomePage> {
                   _currentSliderValue = value;
                 });
               },
+            ),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Start Geo Fencing"),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Stop Geo Fencing"),
+                )
+              ],
             )
           ],
         ),

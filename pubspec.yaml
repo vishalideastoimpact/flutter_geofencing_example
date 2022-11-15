@@ -36,10 +36,15 @@ dependencies:
     git:
       url: https://github.com/fleaflet/flutter_map.git
       location: ^4.4.0
-  latlong2: ^0.8.1
-  proj4dart: ^2.1.0
-  positioned_tap_detector_2: ^1.0.4
 
+  geolocator: ^8.0.5
+  latlong2: ^0.8.1
+  positioned_tap_detector_2: ^1.0.4
+  proj4dart: ^2.1.0
+  flutter_stable_geo_fence:
+    git:
+      url: https://github.com/vishalideastoimpact/flutter_stable_geofence.git
+      ref: ced48a03917951703f7baebbb53fd378c6a3c7db 
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
