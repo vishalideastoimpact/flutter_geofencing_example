@@ -15,6 +15,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<LatLng> tappedPoints = [];
+  List<LatLng> circlePosition = [];
+
+  double _currentSliderValue = 200;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,17 @@ class _HomePageState extends State<HomePage> {
         builder: (ctx) => const Icon(Icons.pin_drop),
       );
     }).toList();
+
+    final newCircle = circlePosition.map((latlng) {
+      return CircleMarker(
+          point: latlng,
+          color: Colors.transparent.withOpacity(0.1),
+          borderStrokeWidth: 2,
+          useRadiusInMeter: true,
+          borderColor: Colors.blue,
+          radius: _currentSliderValue // 2000 meters | 2 km
+          );
+    }).toList();
     // final markers = <Marker>[
     //   Marker(
     //       width: 80,
@@ -33,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     //       point: LatLng(19.888603, 73.835057),
     //       builder: (ctx) => const Icon(Icons.pin_drop)),
     // ];
-    final circleMarkers = <CircleMarker>[
+    var circleMarkers = <CircleMarker>[
       CircleMarker(
           point: LatLng(19.888603, 73.835057),
           color: Colors.transparent.withOpacity(0.1),
@@ -73,10 +87,21 @@ class _HomePageState extends State<HomePage> {
                     userAgentPackageName: 'dev.fleaflet.flutter_map.example',
                   ),
                   MarkerLayer(markers: markers),
-                  CircleLayer(circles: circleMarkers),
+                  CircleLayer(circles: newCircle),
                 ],
               ),
             ),
+            Slider(
+              value: _currentSliderValue,
+              max: 1000,
+              divisions: 10,
+              label: _currentSliderValue.round().toString(),
+              onChanged: (double value) {
+                setState(() {
+                  _currentSliderValue = value;
+                });
+              },
+            )
           ],
         ),
       ),
@@ -86,7 +111,10 @@ class _HomePageState extends State<HomePage> {
   void _handleTap(TapPosition tapPosition, LatLng latlng) {
     print("this is point location: $latlng");
     setState(() {
+      tappedPoints.clear();
+      circlePosition.clear();
       tappedPoints.add(latlng);
+      circlePosition.add(latlng);
     });
   }
 }
