@@ -1,6 +1,6 @@
 {
-    "name": "google_map_location_tracking",
-    "short_name": "google_map_location_tracking",
+    "name": "geo_fencing_in_flutter",
+    "short_name": "geo_fencing_in_flutter",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

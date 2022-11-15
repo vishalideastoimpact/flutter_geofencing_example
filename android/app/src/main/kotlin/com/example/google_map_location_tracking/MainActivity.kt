@@ -1,4 +1,4 @@
-package com.example.google_map_location_tracking
+package com.example.geo_fencing_in_flutter
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_map_location_tracking/pages/home_page.dart';
-
+import 'package:geo_fencing_in_flutter/pages/home_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -16,8 +15,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: mapBoxBlue,
       ),
       home: const HomePage(),
-  
-      
     );
   }
 }
